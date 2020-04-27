@@ -12,7 +12,7 @@ public class NoteController {
     }
 
     @GetMapping()
-    String getNotesWithPageNumberandPerPageConfig(@RequestParam(value = "page") Integer page, @RequestParam(value = "per_page") Integer perPage) {
+    String getNotesWithPageNumberandPerPageConfig(@RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "per_page", defaultValue = "10") Integer perPage) {
         return "Getting your page ".concat(page.toString()).concat(" with items per page").concat(perPage.toString());
     }
 
