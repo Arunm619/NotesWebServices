@@ -12,8 +12,8 @@ public class NoteController {
     }
 
     @GetMapping()
-    String getNotesEmpty() {
-        return "Get";
+    String getNotesWithPageNumberandPerPageConfig(@RequestParam(value = "page") Integer page, @RequestParam(value = "per_page") Integer perPage) {
+        return "Getting your page ".concat(page.toString()).concat(" with items per page").concat(perPage.toString());
     }
 
     @PostMapping
