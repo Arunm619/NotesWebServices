@@ -12,8 +12,9 @@ public class NoteController {
     }
 
     @GetMapping()
-    String getNotesWithPageNumberandPerPageConfig(@RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "per_page", defaultValue = "10") Integer perPage) {
-        return "Getting your page ".concat(page.toString()).concat(" with items per page").concat(perPage.toString());
+    String getNotesWithPageNumberandPerPageConfig(@RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "per_page", defaultValue = "10") Integer perPage,
+                                                  @RequestParam(value = "sort", required = false) String sort) {
+        return "Getting your page ".concat(page.toString()).concat(" with items per page ").concat(perPage.toString()).concat(sort == null ? "" : " and sprted by "+sort);
     }
 
     @PostMapping
